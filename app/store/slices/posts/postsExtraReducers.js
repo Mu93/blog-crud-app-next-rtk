@@ -88,7 +88,7 @@ const updatePostReducer = (builder) => {
       state.posts[existingPostIndex] = updatedPost
       addPostsToLocalStorage([...state.posts, updatedPost])
     }
-    window.location = '/'
+    // window.location = '/'
   })
 }
 export {

@@ -8,16 +8,23 @@ import {
 } from "@/app/store/slices/posts/postsAsyncThunks";
 import { data } from "@/app/store/slices/posts/postsSlice";
 import { useEffect } from "react";
-import { notFound } from "next/navigation";
 import Loading from "@/app/loading";
+import { notFound, useRouter } from "next/navigation";
 
 const GetSinglePost = ({ id }) => {
+  const router = useRouter();
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPostById(id));
   }, [dispatch, id]);
 
   const { singlePost, status } = useSelector(data);
+
+  const handleDelete = (id) => {
+    dispatch(deletePost(id));
+    router.push("/");
+  };
 
   if (status === "loading") {
     return <Loading />;
@@ -61,7 +68,7 @@ const GetSinglePost = ({ id }) => {
           <td className="py-2 px-4 border-b border-gray-300 flex space-x-3">
             <Button
               className="btn btn-error bg-red-500 text-white"
-              onClick={() => dispatch(deletePost(singlePost.id))}
+              onClick={() => handleDelete(singlePost.id)}
               disabled={status === "loading"}
             >
               Delete

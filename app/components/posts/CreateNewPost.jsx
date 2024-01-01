@@ -4,11 +4,16 @@ import { Formik, Form } from "formik";
 import { FormLayout, FormRow, Button } from "@/app/components";
 import { addPostValidationSchema } from "@/app/constants/FormValidation";
 import { addPost } from "@/app/store/slices/posts/postsAsyncThunks";
+import { useRouter } from "next/navigation";
 
 const CreateNewPost = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
+
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
     dispatch(addPost(values));
+    router.push("/");
+
     resetForm();
     setSubmitting(false);
   };

@@ -10,11 +10,12 @@ import {
 import { data } from "@/app/store/slices/posts/postsSlice";
 import { useEffect, useState } from "react";
 import Loading from "@/app/loading";
-import { notFound } from "next/navigation";
+import { notFound, useRouter } from "next/navigation";
 
 const UpdatePost = ({ id }) => {
   const dispatch = useDispatch();
   const { singlePost, status } = useSelector(data);
+  const router = useRouter();
 
   const [updatedData, setUpdatedData] = useState({ title: "", body: "" });
 
@@ -30,6 +31,8 @@ const UpdatePost = ({ id }) => {
 
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
     dispatch(updatePost({ id, ...values }));
+    router.push("/");
+
     resetForm();
     setSubmitting(false);
   };

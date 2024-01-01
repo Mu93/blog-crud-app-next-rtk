@@ -12,6 +12,6 @@ export const removePostsFromLocalStorage = () => {
   const res = localStorage.getItem('posts')
   if (res) {
     localStorage.removeItem('posts')
-    window.location = '/'
+    // window.location = '/'
   }
 }
