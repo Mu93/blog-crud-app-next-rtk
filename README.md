@@ -8,4 +8,4 @@ npm run dev
 ```
 
 # Note
-- i used LocalStorage to simulate the actual server, but i know that LocalStorage doesn't work on server side
+- i have used LocalStorage to simulate the actual server, but i know that LocalStorage doesn't work on server side
