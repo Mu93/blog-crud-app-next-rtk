@@ -1,5 +1,5 @@
 ## Getting Started
-
+## Redux Toolkit Version
 First, run the development server:
 
 ```bash
@@ -8,4 +8,4 @@ npm run dev
 ```
 
 # Note
-- i have used LocalStorage to simulate the actual server, but i know that LocalStorage doesn't work on server side
+- I have used LocalStorage to simulate the actual server, but I know that LocalStorage doesn't work on the server side
